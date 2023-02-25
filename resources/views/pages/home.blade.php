@@ -70,7 +70,7 @@ NOMADS - PROJECT
               <div class="travel-country">INDONESIA</div>
               <div class="travel-location">DERATAN, BALI</div>
               <div class="travel-button mt-auto">
-                <a href="" class="btn btn-travel-details px-4">
+                <a href="{{ route('detail') }}" class="btn btn-travel-details px-4">
                   View Details
                 </a>
               </div>
@@ -82,7 +82,7 @@ NOMADS - PROJECT
               <div class="travel-country">INDONESIA</div>
               <div class="travel-location">DERATAN, BALI</div>
               <div class="travel-button mt-auto">
-                <a href="" class="btn btn-travel-details px-4">
+                <a href="{{ route('detail') }}" class="btn btn-travel-details px-4">
                   View Details
                 </a>
               </div>
@@ -94,7 +94,7 @@ NOMADS - PROJECT
               <div class="travel-country">INDONESIA</div>
               <div class="travel-location">DERATAN, BALI</div>
               <div class="travel-button mt-auto">
-                <a href="" class="btn btn-travel-details px-4">
+                <a href="{{ route('detail') }}" class="btn btn-travel-details px-4">
                   View Details
                 </a>
               </div>
@@ -106,7 +106,7 @@ NOMADS - PROJECT
               <div class="travel-country">INDONESIA</div>
               <div class="travel-location">DERATAN, BALI</div>
               <div class="travel-button mt-auto">
-                <a href="" class="btn btn-travel-details px-4">
+                <a href="{{ route('detail') }}" class="btn btn-travel-details px-4">
                   View Details
                 </a>
               </div>
@@ -130,7 +130,7 @@ NOMADS - PROJECT
             </p>
           </div>
           <div class="col-md-8 text-center">
-            <img src="frontend/images/partner.png" alt="Logo Partners" class="img-partner">
+            <img src="{{ url('frontend/images/partner.png') }}" alt="Logo Partners" class="img-partner">
           </div>
         </div>
       </div>
