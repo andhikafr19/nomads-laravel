@@ -30,4 +30,7 @@ Route::get('/checkout/success', [CheckoutController::class, 'success'])
     ->name('checkout-success');
 
 Route::get('/admin', [DashboardController::class, 'index'])
+    ->middleware('auth', 'admin')
     ->name(('dashboard'));
+
+Auth::routes();
