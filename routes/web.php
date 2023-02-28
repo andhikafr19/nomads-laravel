@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\DetailController;
-use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\DashboardController;
+
 
 
 /*
@@ -33,4 +35,4 @@ Route::get('/admin', [DashboardController::class, 'index'])
     ->middleware('auth', 'admin')
     ->name(('dashboard'));
 
-Auth::routes();
+Auth::routes(['verify' => true]);
