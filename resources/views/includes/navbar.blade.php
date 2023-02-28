@@ -29,11 +29,22 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Testimonial</a>
             </li>
-            <form action="" class="form-inline my-2 my-lg-0 d-none d-md-block">
-              <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
-                Masuk
-              </button>
-            </form>
+            @guest
+                <form action="" class="form-inline my-2 my-lg-0 d-none d-md-block">
+                    <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" type="button" onclick="event.preventDefault(); location.href='{{ url('login') }}';">
+                    Masuk
+                    </button>
+                </form>
+            @endguest
+
+            @auth
+                <form class="form-inline my-2 my-lg-0 d-none d-md-block" action="{{ url('logout') }}" method="POST">
+                    @csrf
+                    <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
+                    Keluar
+                    </button>
+                </form>
+            @endauth
           </ul>
         </div>
       </div>
