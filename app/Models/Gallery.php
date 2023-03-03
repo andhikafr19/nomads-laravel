@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TravelPackage extends Model
+class Gallery extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -15,8 +15,8 @@ class TravelPackage extends Model
 
     protected $hidden = [];
 
-    public function galleries()
+    public function travel_package()
     {
-        return $this->hasMany(Gallery::class, 'travel_packages_id', 'id');
+        return $this->belongsTo(TravelPackage::class, 'travel_packages_id', 'id');
     }
 }
