@@ -15,8 +15,8 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->integer('travel_packages_id');
-            $table->integer('users_id')->nullable();
+            $table->foreignId('travel_packages_id')->constrained('travel_packages');
+            $table->foreignId('users_id')->constrained('users');
             $table->integer('additional_visa');
             $table->integer('transaction_total');
             $table->string('transaction_status'); //in_cart, pending, success, cancel, failed
