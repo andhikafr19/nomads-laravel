@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\TravelPackageController;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
-Route::get('/detail', [DetailController::class, 'index'])
+Route::get('/detail/{slug}', [DetailController::class, 'index'])
     ->name('detail');
 
 Route::get('/checkout', [CheckoutController::class, 'index'])
@@ -32,7 +32,7 @@ Route::get('/checkout', [CheckoutController::class, 'index'])
 Route::get('/checkout/success', [CheckoutController::class, 'success'])
     ->name('checkout-success');
 
-// Route (/admin)
+// Route (/admin-dashboard)
 Route::prefix('admin')
     // ->namespace('Admin')
     ->middleware(['auth', 'admin'])
