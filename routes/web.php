@@ -39,7 +39,7 @@ Route::post('/checkout/create/{detail_id}', [CheckoutController::class, 'create'
 Route::get('/checkout/create/{detail_id}', [CheckoutController::class, 'remove'])
     ->name('checkout-remove')
     ->middleware(['auth', 'verified']);
-Route::get('/checkout/success', [CheckoutController::class, 'success'])
+Route::get('/checkout/confirm/{id}', [CheckoutController::class, 'success'])
     ->name('checkout-success')
     ->middleware(['auth', 'verified']);
 

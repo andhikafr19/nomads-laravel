@@ -49,9 +49,9 @@ class CheckoutController extends Controller
     {
         $item = TransactionDetail::findOrFail($detail_id);
 
-        $transaction = Transaction::with(['details', 'travel_packages'])->findOrFail($item->transaction_id);
+        $transaction = Transaction::with(['details', 'travel_packages'])->findOrFail($item->transactions_id);
 
-        if ($request->is_visa)
+        if (!$request->is_visa)
         {
             $transaction->transaction_total -= 190;
             $transaction->additional_visa -= 190;
@@ -59,10 +59,10 @@ class CheckoutController extends Controller
 
         $transaction->transaction_total -= $transaction->travel_packages->price;
 
-        $transaction->save();
         $item->delete();
+        $transaction->save();
 
-        return redirect()->route('checkout', $item->transaction_id);
+        return redirect()->route('checkout', $item->transactions_id);
     }
 
     public function create(Request $request, $id)
@@ -78,7 +78,7 @@ class CheckoutController extends Controller
 
         TransactionDetail::create($data);
 
-        $transaction = Transaction::with(['travel_package'])->find($id);
+        $transaction = Transaction::with(['travel_packages'])->find($id);
 
         if ($request->is_visa)
         {
